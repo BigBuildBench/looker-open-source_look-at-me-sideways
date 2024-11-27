@@ -1,0 +1,6 @@
+node_modules
+lib/templates/*.js
+developer.md
+issues.md
+.DS_Store
+*.tgz

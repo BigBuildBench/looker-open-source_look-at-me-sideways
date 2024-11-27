@@ -1,0 +1,47 @@
+{
+  "name": "@looker/look-at-me-sideways",
+  "version": "3.4.0",
+  "description": "A judgmental little LookML linter >_>",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "bin": {
+    "lams": "./cli.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watchAll --verbose",
+    "lint": "node node_modules/.bin/eslint -c .eslintrc.js \"{*,__tests__/*,rules/*,lib/*}.js\"",
+    "lint-fix": "node node_modules/.bin/eslint --fix  -c .eslintrc.js \"{*,__tests__/*,rules/*,lib/*}.js\"",
+    "preversion": "npm run lint-fix && npm run test",
+    "prepublishOnly": "npm shrinkwrap && mv npm-shrinkwrap.json npm-shrinkwrap.dev.json && npm prune --prod && npm shrinkwrap",
+    "postpublish": "cp npm-shrinkwrap.dev.json npm-shrinkwrap.json && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/looker-open-source/look-at-me-sideways.git"
+  },
+  "keywords": [
+    "looker",
+    "lookml",
+    "lint",
+    "linter"
+  ],
+  "author": "Fabio Beltramini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/looker-open-source/look-at-me-sideways/issues"
+  },
+  "homepage": "https://github.com/looker-open-source/look-at-me-sideways#readme",
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-google": "^0.10.0",
+    "eslint-plugin-jest": "^21.27.2",
+    "jest": "^27.3.1",
+    "jest-extended": "^1.1.0"
+  },
+  "optionalDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
